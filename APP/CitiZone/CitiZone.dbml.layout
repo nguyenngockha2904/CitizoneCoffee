@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9" name="CitiZone">
+  <DataContextMoniker Name="/CitiZoneDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f718efc5-16c3-43cf-91eb-f67eb87e0f2d" absoluteBounds="0.75, 3.375, 2, 2.4794234212239581">
+      <DataClassMoniker Name="/CitiZoneDataContext/account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdc34bf2-0a9c-4ee7-a2b4-3a645b198ea7" absoluteBounds="0.765, 3.835, 1.9700000000000002, 1.9194234212239585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d24fbd7-acfa-41c1-9a52-8a9bf271d955" absoluteBounds="3.5, 7.125, 2, 1.6547977701822916">
+      <DataClassMoniker Name="/CitiZoneDataContext/food" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18ada10a-f83e-4a74-b2b4-f2488d71a5d1" absoluteBounds="3.515, 7.585, 1.9700000000000002, 1.0947977701822915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="acb5270e-dc92-42ae-89f9-2b4f8f5b9174" absoluteBounds="6.25, 0.75, 2, 1.6547977701822916">
+      <DataClassMoniker Name="/CitiZoneDataContext/billInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="632162cc-bf8a-4934-adaf-f8b6a2092b76" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.0947977701822915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="395f92d4-07ea-4e1b-b6a1-0b5f1551e6de" absoluteBounds="3.5, 3.625, 2, 1.8609541829427077">
+      <DataClassMoniker Name="/CitiZoneDataContext/bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe708f6a-ce53-48e8-b3c3-6b562f262b82" absoluteBounds="3.515, 4.085, 1.9700000000000002, 1.3009541829427083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa6856e6-8cb7-4b29-94b0-110ec15a92bf" absoluteBounds="0.75, 7.375, 2, 1.2424849446614603">
+      <DataClassMoniker Name="/CitiZoneDataContext/category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="423f4507-4289-41a3-a370-ed5097c33ae5" absoluteBounds="0.765, 7.835, 1.9700000000000002, 0.68248494466145826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7b4f274-b2f2-4a8a-9aea-0067718606c0" absoluteBounds="5.875, 3.5, 2, 1.4486413574218755">
+      <DataClassMoniker Name="/CitiZoneDataContext/coffeeTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9bb74d3-b143-48b3-a792-bda308cd6c46" absoluteBounds="5.89, 3.96, 1.9700000000000002, 0.888641357421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.95239888509115); (8.09375 : 7.95239888509115); (8.09375 : 2.40479777018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CitiZoneDataContext/food/food_billInfo" />
+      <nodes>
+        <classShapeMoniker Id="6d24fbd7-acfa-41c1-9a52-8a9bf271d955" />
+        <classShapeMoniker Id="acb5270e-dc92-42ae-89f9-2b4f8f5b9174" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 3.625); (4.5 : 2.02235082763672); (6.25 : 2.02235082763672)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CitiZoneDataContext/bill/bill_billInfo" />
+      <nodes>
+        <classShapeMoniker Id="395f92d4-07ea-4e1b-b6a1-0b5f1551e6de" />
+        <classShapeMoniker Id="acb5270e-dc92-42ae-89f9-2b4f8f5b9174" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.55547709147135); (3.5 : 4.55547709147135)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CitiZoneDataContext/account/account_bill" />
+      <nodes>
+        <classShapeMoniker Id="f718efc5-16c3-43cf-91eb-f67eb87e0f2d" />
+        <classShapeMoniker Id="395f92d4-07ea-4e1b-b6a1-0b5f1551e6de" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.99624247233073); (3.5 : 7.99624247233073)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CitiZoneDataContext/category/category_food" />
+      <nodes>
+        <classShapeMoniker Id="fa6856e6-8cb7-4b29-94b0-110ec15a92bf" />
+        <classShapeMoniker Id="6d24fbd7-acfa-41c1-9a52-8a9bf271d955" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.28682067871094); (5.875 : 4.28682067871094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CitiZoneDataContext/bill/bill_coffeeTable" />
+      <nodes>
+        <classShapeMoniker Id="395f92d4-07ea-4e1b-b6a1-0b5f1551e6de" />
+        <classShapeMoniker Id="f7b4f274-b2f2-4a8a-9aea-0067718606c0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

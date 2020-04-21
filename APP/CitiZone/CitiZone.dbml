@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CitiZone" Class="CitiZoneDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-J3Q7AGG;Initial Catalog=CitiZone;Integrated Security=True" SettingsObjectName="CitiZone.Properties.Settings" SettingsPropertyName="CitiZoneConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.accounts" Member="accounts">
+    <Type Name="account">
+      <Column Name="username" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fullname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="position" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pictureLocation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="account_bill" Member="bills" ThisKey="username" OtherKey="username" Type="bill" />
+    </Type>
+  </Table>
+  <Table Name="dbo.foods" Member="foods">
+    <Type Name="food">
+      <Column Name="foodID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="foodName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="categoryID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="food_billInfo" Member="billInfos" ThisKey="foodID" OtherKey="foodID" Type="billInfo" />
+      <Association Name="category_food" Member="category" ThisKey="categoryID" OtherKey="categoryID" Type="category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.billInfo" Member="billInfos">
+    <Type Name="billInfo">
+      <Column Name="foodID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="billID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="total" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="food_billInfo" Member="food" ThisKey="foodID" OtherKey="foodID" Type="food" IsForeignKey="true" />
+      <Association Name="bill_billInfo" Member="bill" ThisKey="billID" OtherKey="billID" Type="bill" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bills" Member="bills">
+    <Type Name="bill">
+      <Column Name="billID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="billName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="billDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="total" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="bill_billInfo" Member="billInfos" ThisKey="billID" OtherKey="billID" Type="billInfo" />
+      <Association Name="bill_coffeeTable" Member="coffeeTables" ThisKey="billID" OtherKey="billID" Type="coffeeTable" />
+      <Association Name="account_bill" Member="account" ThisKey="username" OtherKey="username" Type="account" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.categories" Member="categories">
+    <Type Name="category">
+      <Column Name="categoryID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="categoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="category_food" Member="foods" ThisKey="categoryID" OtherKey="categoryID" Type="food" />
+    </Type>
+  </Table>
+  <Table Name="dbo.coffeeTable" Member="coffeeTables">
+    <Type Name="coffeeTable">
+      <Column Name="tableID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="billID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="bill_coffeeTable" Member="bill" ThisKey="billID" OtherKey="billID" Type="bill" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.addAccounts" Method="addAccounts">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="position" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateInfoAccounts" Method="updateInfoAccounts">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="fullname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pictureLocation" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.addBillInfo" Method="addBillInfo">
+    <Parameter Name="foodID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="billID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="amount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="total" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.addBills" Method="addBills">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="billName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="billDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.addCategories" Method="addCategories">
+    <Parameter Name="categoryID" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="categoryName" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.addFoods" Method="addFoods">
+    <Parameter Name="foodname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="price" Type="System.Int32" DbType="Int" />
+    <Parameter Name="categoryID" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteAccounts" Method="deleteAccounts">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteBillInfo" Method="deleteBillInfo">
+    <Parameter Name="billID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteBills" Method="deleteBills">
+    <Parameter Name="billID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteBillsByUsername" Method="deleteBillsByUsername">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteCategories" Method="deleteCategories">
+    <Parameter Name="categoryID" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteFoods" Method="deleteFoods">
+    <Parameter Name="foodID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteFoodsByCategories" Method="deleteFoodsByCategories">
+    <Parameter Name="categoryID" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.searchBills" Method="searchBills">
+    <Parameter Name="billID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="billName" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="searchBillsResult">
+      <Column Name="billID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="billName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="billDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="total" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.updateAccounts" Method="updateAccounts">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="position" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateBills" Method="updateBills">
+    <Parameter Name="billID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="total" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateCategories" Method="updateCategories">
+    <Parameter Name="categoryID" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="categoryName" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateCoffeeTable" Method="updateCoffeeTable">
+    <Parameter Name="tableID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="billID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateFoods" Method="updateFoods">
+    <Parameter Name="foodID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="foodname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="price" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
