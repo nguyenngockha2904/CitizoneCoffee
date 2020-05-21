@@ -55,7 +55,8 @@ namespace CitiZone.CitizoneDAOimpl
             acc.birthday = account.birthday;
             acc.address = account.address;
             acc.phone = account.phone;
-            acc.pictureLocation = account.pictureLocation;*/
+            acc.pictureLocation = account.pictureLocation;
+                */        
             db.SubmitChanges();
         }
         //lấy tài khoản thông qa username
@@ -81,12 +82,19 @@ namespace CitiZone.CitizoneDAOimpl
         // ánh xạ account update qua account tren CitizoneLinq để update
         public void setAccountUpdate(account accDB, account accUpdate)
         {
-            accDB.password = accUpdate.password;
-            accDB.fullname = accUpdate.fullname;
+            if (accUpdate.password != null) { accDB.password = accUpdate.password; }
+            if (accUpdate.fullname != null) { accDB.fullname = accUpdate.fullname; }
+            if (accUpdate.birthday != null) { accDB.birthday = accUpdate.birthday; ;}
+            if (accUpdate.address != null) { accDB.address = accUpdate.address; }
+            if (accUpdate.phone != 0) { accDB.phone = accUpdate.phone; }
+            if (accUpdate.password != null) { accDB.pictureLocation = accUpdate.pictureLocation; }
+
+           /* accDB.fullname = accUpdate.fullname;
             accDB.birthday = accUpdate.birthday;
             accDB.address = accUpdate.address;
             accDB.phone = accUpdate.phone;
             accDB.pictureLocation = accUpdate.pictureLocation;
+            */
         }
     }
 }

@@ -44,16 +44,16 @@
             this.ptbInfoAccount = new System.Windows.Forms.PictureBox();
             this.ptbDeleteAccount = new System.Windows.Forms.PictureBox();
             this.pnlManageAccount = new System.Windows.Forms.Panel();
-            this.ptbPrint = new System.Windows.Forms.PictureBox();
             this.ptbEditAccount = new System.Windows.Forms.PictureBox();
+            this.ptbPrint = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQLTK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAddAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbInfoAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbDeleteAccount)).BeginInit();
             this.pnlManageAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEditAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvQLTK
@@ -69,7 +69,7 @@
             this.dgvQLTK.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -82,11 +82,11 @@
             this.Quyen,
             this.pw});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvQLTK.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvQLTK.Location = new System.Drawing.Point(13, 13);
@@ -197,6 +197,16 @@
             this.pnlManageAccount.Size = new System.Drawing.Size(804, 382);
             this.pnlManageAccount.TabIndex = 13;
             // 
+            // ptbEditAccount
+            // 
+            this.ptbEditAccount.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbEditAccount.BackgroundImage")));
+            this.ptbEditAccount.Location = new System.Drawing.Point(732, 106);
+            this.ptbEditAccount.Name = "ptbEditAccount";
+            this.ptbEditAccount.Size = new System.Drawing.Size(50, 50);
+            this.ptbEditAccount.TabIndex = 14;
+            this.ptbEditAccount.TabStop = false;
+            this.ptbEditAccount.Click += new System.EventHandler(this.ptbEdit_Click);
+            // 
             // ptbPrint
             // 
             this.ptbPrint.BackColor = System.Drawing.Color.White;
@@ -208,16 +218,6 @@
             this.ptbPrint.TabIndex = 28;
             this.ptbPrint.TabStop = false;
             this.ptbPrint.Click += new System.EventHandler(this.ptbPrint_Click);
-            // 
-            // ptbEditAccount
-            // 
-            this.ptbEditAccount.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbEditAccount.BackgroundImage")));
-            this.ptbEditAccount.Location = new System.Drawing.Point(732, 106);
-            this.ptbEditAccount.Name = "ptbEditAccount";
-            this.ptbEditAccount.Size = new System.Drawing.Size(50, 50);
-            this.ptbEditAccount.TabIndex = 14;
-            this.ptbEditAccount.TabStop = false;
-            this.ptbEditAccount.Click += new System.EventHandler(this.ptbEdit_Click);
             // 
             // frmManageAccount
             // 
@@ -242,8 +242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbInfoAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbDeleteAccount)).EndInit();
             this.pnlManageAccount.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbEditAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbPrint)).EndInit();
             this.ResumeLayout(false);
 
         }

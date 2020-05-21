@@ -11,6 +11,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using CitiZone.Class;
 using CitiZone.CitizoneServices;
+using DevExpress.Utils.Serializing;
 
 namespace CitiZone
 {
@@ -95,7 +96,7 @@ namespace CitiZone
                     account.password = txtPassword.Text;
                     account.fullname = txtFullname.Text;
                     account.address = txtAddress.Text;
-                    account.phone = Int32.Parse(txtPhone.Text);
+                    account.phone =Convert.ToInt32(txtPhone.Text);
                     account.pictureLocation = lblAvatar.Text;
                     account.birthday = DateTime.Parse(dtpBirthday.Text);
                     accountServices.updateAccount(account);

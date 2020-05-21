@@ -42,6 +42,7 @@ namespace CitiZone
         private void ptbViewInfo_Click(object sender, EventArgs e)
         {
             viewUser = frmLogin.loggedUser;
+           // MessageBox.Show(viewUser);
             frmInfoAccount viewinfo = new frmInfoAccount();
             viewinfo.ShowDialog();
             frmCitiZone_Load(sender, e);

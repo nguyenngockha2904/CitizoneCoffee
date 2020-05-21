@@ -48,7 +48,7 @@ namespace CitiZone
                     string pst = (from p in login.accounts
                                   where p.username == txtUsername.Text
                                   select p.position).First().ToString();
-                    loggedUser = txtUsername.Text.ToUpper();
+                    loggedUser = txtUsername.Text;
                     loggedPosition = pst;
                     this.Hide();
                     frmMain frm = new frmMain();
