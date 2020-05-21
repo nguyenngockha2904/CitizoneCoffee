@@ -29,5 +29,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=DESKTOP-J3Q7AGG;Initial Catalog=CitiZone;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="CitiZoneConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-9QSFA13;Initial Catalog=CitiZone;Persist Security Info=True;User ID=sa&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-9QSFA13;Initial Catalog=CitiZone;Persist Security Info=True;User ID=sa</Value>
+    </Setting>
+    <Setting Name="CitiZoneConnectionString4" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-9QSFA13;Initial Catalog=CitiZone;User ID=sa;Password=kha12081989&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-9QSFA13;Initial Catalog=CitiZone;User ID=sa;Password=kha12081989</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

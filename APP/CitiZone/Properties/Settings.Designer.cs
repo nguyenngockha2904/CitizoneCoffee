@@ -62,5 +62,27 @@ namespace CitiZone.Properties {
                 return ((string)(this["CitiZoneConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-9QSFA13;Initial Catalog=CitiZone;Persist Security Info=True;U" +
+            "ser ID=sa")]
+        public string CitiZoneConnectionString3 {
+            get {
+                return ((string)(this["CitiZoneConnectionString3"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-9QSFA13;Initial Catalog=CitiZone;User ID=sa;Password=kha12081" +
+            "989")]
+        public string CitiZoneConnectionString4 {
+            get {
+                return ((string)(this["CitiZoneConnectionString4"]));
+            }
+        }
     }
 }

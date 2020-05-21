@@ -51,7 +51,7 @@ namespace CitiZone
     #endregion
 		
 		public CitiZoneDataContext() : 
-				base(global::CitiZone.Properties.Settings.Default.CitiZoneConnectionString2, mappingSource)
+				base(global::CitiZone.Properties.Settings.Default.CitiZoneConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -135,13 +135,6 @@ namespace CitiZone
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateInfoAccounts")]
-		public int updateInfoAccounts([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fullname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string pictureLocation)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, fullname, birthday, address, phone, pictureLocation);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addBillInfo")]
 		public int addBillInfo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> foodID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> billID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> amount, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> total)
 		{
@@ -219,6 +212,13 @@ namespace CitiZone
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SearchBillinfosByBillID")]
+		public ISingleResult<SearchBillinfosByBillIDResult> SearchBillinfosByBillID([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> billID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), billID);
+			return ((ISingleResult<SearchBillinfosByBillIDResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.searchBills")]
 		public ISingleResult<searchBillsResult> searchBills([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> billID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string billName)
 		{
@@ -258,6 +258,13 @@ namespace CitiZone
 		public int updateFoods([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> foodID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string foodname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> price)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), foodID, foodname, price);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateInfoAccounts")]
+		public int updateInfoAccounts([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fullname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string pictureLocation)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, fullname, birthday, address, phone, pictureLocation);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -1455,6 +1462,68 @@ namespace CitiZone
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class SearchBillinfosByBillIDResult
+	{
+		
+		private string _foodName;
+		
+		private System.Nullable<int> _amount;
+		
+		private System.Nullable<int> _price;
+		
+		public SearchBillinfosByBillIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foodName", DbType="NVarChar(50)")]
+		public string foodName
+		{
+			get
+			{
+				return this._foodName;
+			}
+			set
+			{
+				if ((this._foodName != value))
+				{
+					this._foodName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_amount", DbType="Int")]
+		public System.Nullable<int> amount
+		{
+			get
+			{
+				return this._amount;
+			}
+			set
+			{
+				if ((this._amount != value))
+				{
+					this._amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int")]
+		public System.Nullable<int> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
 			}
 		}
 	}

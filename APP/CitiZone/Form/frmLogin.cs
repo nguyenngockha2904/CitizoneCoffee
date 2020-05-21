@@ -43,7 +43,7 @@ namespace CitiZone
                 MessageBox.Show("Username or Password incorrect", "Notification");
             else
             {
-                if (logIn(txtUsername.Text, txtPassword.Text))
+                if (logIn(txtUsername.Text,txtPassword.Text))
                 {
                     string pst = (from p in login.accounts
                                   where p.username == txtUsername.Text
@@ -62,7 +62,7 @@ namespace CitiZone
         }
         private bool logIn(string username, string password)
         {
-            var q = from p in login.accounts
+            var q = (from p in login.accounts
                     where p.username == username
                     && p.password == password
                     select new
@@ -70,8 +70,8 @@ namespace CitiZone
                         p.username,
                         p.password,
                         p.position
-                    };
-
+                    });
+            
             if (q.Any())
             {
                 return true;
