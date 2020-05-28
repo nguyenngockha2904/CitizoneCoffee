@@ -135,6 +135,13 @@ namespace CitiZone
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateInfoAccounts")]
+		public int updateInfoAccounts([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fullname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string pictureLocation)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, fullname, birthday, address, phone, pictureLocation);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addBillInfo")]
 		public int addBillInfo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> foodID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> billID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> amount, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> total)
 		{
@@ -258,13 +265,6 @@ namespace CitiZone
 		public int updateFoods([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> foodID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string foodname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> price)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), foodID, foodname, price);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateInfoAccounts")]
-		public int updateInfoAccounts([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(20)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fullname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthday, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> phone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string pictureLocation)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password, fullname, birthday, address, phone, pictureLocation);
 			return ((int)(result.ReturnValue));
 		}
 	}

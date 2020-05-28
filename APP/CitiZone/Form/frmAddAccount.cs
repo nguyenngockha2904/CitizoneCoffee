@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,7 +55,7 @@ namespace CitiZone
                 {
                     
                     account.username = txtUsername.Text.ToUpper();
-                    account.password = txtPassword.Text;
+                    account.password = Mahoa(txtPassword.Text);
                     account.position = cbPosition.Text.ToLower();
                     accountServices.addAcount(account);
                     MessageBox.Show("Added an account " + account.username + " as " + account.position, "Notification");
@@ -103,6 +104,65 @@ namespace CitiZone
                     && txtRePassword.Text.Trim().Length < 21
                     && cbPosition.SelectedItem != null;
             }
+        }
+        #endregion
+
+        #region MaHoa
+        private String Mahoa(String txt)
+        {
+            String s = "";
+            int sonud = 0;
+            int nudSoViTri = txtPassword.Text.Length + txtUsername.Text.Length;
+            for (int i = 0; i < txt.Length; i++)
+            {
+
+                char c = txt[i];
+                int n = (int)c;
+                if (c >= 'A' && c <= 'Z')
+                {
+                    c = (Char)((n - 65 + nudSoViTri) % 26 + 65);
+                    // MessageBox.Show("ma hoa chu : "+((n - 65 + (int)(nudSoViTri.Value)) % 26 + 65).ToString());
+                    s += c; // s = s + c
+                }
+                else if (c > '/' && c < ':')
+                {
+                    // MessageBox.Show((nudSoViTri.Value-nudSoViTri.Value % 10).ToString());
+                    if (nudSoViTri >= 10)
+                    {
+                        sonud = (int)(nudSoViTri % 10);
+                        if (nudSoViTri % 10 == 0)
+                        {
+                            sonud = sonud + 5;
+                        }
+                        c = (Char)((n - 48 + sonud) % 10 + 48);
+
+                        s += c; // s = s + c
+
+                    }
+                    else
+                    {
+                        c = (Char)((n - 48 + nudSoViTri) % 10 + 48);
+                        // MessageBox.Show("ma hoa số :" + ((n - 48 + (int)(nudSoViTri.Value)) % 10 + 48));
+                        s += c; // s = s + c }
+                    }
+                }
+                else if (c >= 'a' && c <= 'z')
+                {
+                    c = (Char)((n - 97 + nudSoViTri) % 26 + 97);
+                    // MessageBox.Show("ma hoa chu : "+((n - 65 + (int)(nudSoViTri.Value)) % 26 + 65).ToString());
+                    s += c; // s = s + c
+                }
+
+            }
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(s);
+            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
+            String hasPass = "";
+            foreach (byte item in hasData)
+            {
+                hasPass += item;
+            }
+            return hasPass;
+
         }
         #endregion
     }

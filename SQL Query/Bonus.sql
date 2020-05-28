@@ -8,3 +8,6 @@ begin
 end
 go
 exec Finddaydd '2019-04-1'
+
+alter table accounts
+alter column password nvarchar(200);

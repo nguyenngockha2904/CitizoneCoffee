@@ -66,6 +66,16 @@
     <Parameter Name="position" Type="System.String" DbType="NVarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.updateInfoAccounts" Method="updateInfoAccounts">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="fullname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="birthday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pictureLocation" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.addBillInfo" Method="addBillInfo">
     <Parameter Name="foodID" Type="System.Int32" DbType="Int" />
     <Parameter Name="billID" Type="System.Int32" DbType="Int" />
@@ -163,16 +173,6 @@
     <Parameter Name="foodID" Type="System.Int32" DbType="Int" />
     <Parameter Name="foodname" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="price" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.updateInfoAccounts" Method="updateInfoAccounts">
-    <Parameter Name="username" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="password" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="fullname" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="birthday" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="phone" Type="System.Int32" DbType="Int" />
-    <Parameter Name="pictureLocation" Type="System.String" DbType="NVarChar(200)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
